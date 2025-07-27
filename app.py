@@ -133,12 +133,5 @@ if prompt_to_process:
     st.rerun()
 
 
-    %%writefile requirements.txt
-streamlit
-langchain
-langchain-community
-langchain-groq
-langgraph
-requests
-tavily-python
+st.markdown("<div style='text-align: center; color: grey;'>Helped 1,000+ travelers! | <a href='#'>Support</a> | <a href='#'>Terms of Service</a></div>", unsafe_allow_html=True)
 
