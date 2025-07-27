@@ -66,7 +66,7 @@ st.markdown("---")
 
 # Sidebar with New Chat and History
 with st.sidebar:
-    st.image("https://images.unsplash.com/photo-1527631746610-b2225a206281?q=80&w=1887&auto-format&fit=crop", caption="Discover Your Next Adventure")
+    st.image("https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", caption="Discover Your Next Adventure")
     
     if st.button("➕ New Chat"):
         # Save the first user prompt of the old chat to history
