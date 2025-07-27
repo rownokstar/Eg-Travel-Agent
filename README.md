@@ -84,24 +84,28 @@ pip (Python Package Installer)
 
 Cloning the Repository
 
+```bash
 git clone https://github.com/rownokstar/Eg-Travel-Agent.git
 cd Eg-Travel-Agent
-
+```
 Installation
 
 It's recommended to use a virtual environment.
 
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 pip install -r requirements.txt
-
+```
 Set Up API Keys
 
 Create a file named secrets.toml inside a .streamlit folder (.streamlit/secrets.toml). Add your API keys in the following format:
 
+```bash
 [api_keys]
 GROQ_API_KEY = "YOUR_GROQ_API_KEY"
 TAVILY_API_KEY = "YOUR_TAVILY_API_KEY"
+```
 
 Running the Project
 
