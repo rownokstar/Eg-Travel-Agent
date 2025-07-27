@@ -13,19 +13,19 @@ from typing import TypedDict, Annotated, List
 import operator
 
 # ------------------------------------------------------------------
-# 1. কাস্টম CSS (ব্লু থিম)
+# 1. Custom CSS for UI Styling (Blue Theme)
 # ------------------------------------------------------------------
 custom_css = """
 <style>
-/* ব্লু গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
+/* Blue gradient background */
 [data-testid="stAppViewContainer"] > .main {
     background-image: linear-gradient(180deg, #d4e4ff, #ffffff);
 }
-/* চ্যাট উইন্ডোকে সুন্দর করা */
+/* Styling chat messages */
 [data-testid="stChatMessage"] {
     border-radius: 10px; padding: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-/* ব্লু রঙের বাটন */
+/* Blue buttons */
 .stButton>button {
     background-color: #0068c9;
     color: white;
@@ -38,7 +38,7 @@ custom_css = """
     background-color: #00509e;
     border: 1px solid #00509e;
 }
-/* সাইডবারের বাটন স্টাইল */
+/* Sidebar button style */
 [data-testid="stSidebar"] .stButton>button {
     background-color: transparent;
     color: #0068c9;
@@ -54,9 +54,8 @@ custom_css = """
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
-
 # ------------------------------------------------------------------
-# 2. অ্যাপের লেআউট: হেডার, সাইডবার এবং ফুটার
+# 2. App Layout: Header, Sidebar, and Footer
 # ------------------------------------------------------------------
 col1, col2 = st.columns([1, 4])
 with col1:
@@ -65,39 +64,39 @@ with col2:
     st.markdown("#### Plan Your Perfect Trip with Confidence.")
 st.markdown("---")
 
-# সাইডবার (New Chat এবং History সহ)
+# Sidebar with New Chat and History
 with st.sidebar:
     st.image("https://images.unsplash.com/photo-1527631746610-b2225a206281?q=80&w=1887&auto-format&fit=crop", caption="Discover Your Next Adventure")
     
     if st.button("➕ New Chat"):
-        # পুরোনো চ্যাটের প্রথম প্রশ্নটি হিস্টোরিতে সেভ করা
+        # Save the first user prompt of the old chat to history
         if "messages" in st.session_state and len(st.session_state.messages) > 1:
             if "chat_history" not in st.session_state:
                 st.session_state.chat_history = []
             first_user_prompt = next((msg["content"] for msg in st.session_state.messages if msg["role"] == "user"), None)
             if first_user_prompt and first_user_prompt not in st.session_state.chat_history:
-                st.session_state.chat_history.insert(0, first_user_prompt[:70] + "...") # Snippet
+                st.session_state.chat_history.insert(0, first_user_prompt[:70] + "...") # Save a snippet
 
-        # বর্তমান চ্যাট রিসেট করা
+        # Reset the current chat
         st.session_state.messages = [{"role": "assistant", "content": "Hi! I’m TravelBot. Where are you headed?"}]
         st.rerun()
 
     if "chat_history" in st.session_state and st.session_state.chat_history:
         st.markdown("---")
         st.subheader("Recent Chats")
-        for i, chat_prompt in enumerate(st.session_state.chat_history[:5]): # শেষ ৫টি চ্যাট
+        for i, chat_prompt in enumerate(st.session_state.chat_history[:5]): # Show last 5 chats
             if st.button(chat_prompt, key=f"history_{i}"):
                 st.session_state.messages = [{"role": "user", "content": chat_prompt}]
                 st.rerun()
 
 # ------------------------------------------------------------------
-# 3. API Key লোড এবং টুল ডিফাইন করা (অপরিবর্তিত)
+# 3. API Key Loading and Tool Definition (Unchanged)
 # ------------------------------------------------------------------
 try:
     os.environ["GROQ_API_KEY"] = st.secrets["api_keys"]["GROQ_API_KEY"]
     os.environ["TAVILY_API_KEY"] = st.secrets["api_keys"]["TAVILY_API_KEY"]
 except KeyError:
-    st.error("API Keys পাওয়া যায়নি!")
+    st.error("API Keys not found! Please set them correctly in the Streamlit Cloud 'Secrets' section.")
     st.stop()
 @tool
 def get_weather_forecast(latitude: float, longitude: float, start_date: str, end_date: str) -> str:
@@ -116,7 +115,7 @@ web_search_tool = TavilySearchResults(max_results=3)
 tools = [web_search_tool, get_weather_forecast, calculator]
 
 # ------------------------------------------------------------------
-# 4. এজেন্ট গ্রাফ তৈরি এবং ক্যাশ করা (অপরিবর্তিত)
+# 4. Agent Graph Creation (Unchanged)
 # ------------------------------------------------------------------
 @st.cache_resource
 def create_agent_graph():
@@ -135,7 +134,7 @@ def create_agent_graph():
 app, llm = create_agent_graph()
 
 # ------------------------------------------------------------------
-# 5. চ্যাট ইন্টারফেস
+# 5. Chat Interface (Converted to English)
 # ------------------------------------------------------------------
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Hi! I’m TravelBot. Where are you headed?"}]
@@ -145,7 +144,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
-prompt_to_process = st.chat_input("শুধুমাত্র ভ্রমণ বিষয়ে প্রশ্ন করুন...")
+prompt_to_process = st.chat_input("Ask only about travel-related topics...")
 
 if prompt_to_process:
     st.session_state.messages.append({"role": "user", "content": prompt_to_process})
@@ -160,7 +159,14 @@ if prompt_to_process:
         
         system_instruction = SystemMessage(
             content=(
-                "You are a specialized AI travel agent 'TravelBot'. Your ONLY function is to assist with travel-related queries. If the user asks a question NOT related to travel, you MUST politely refuse. Your refusal message should be in the user's language. For travel questions, think step-by-step, call one tool at a time, and respond in the user's language."
+                "You are a specialized AI travel agent 'TravelBot'. "
+                "Your ONLY function is to assist with travel-related queries. This includes tourism, flight and hotel information, itineraries, budgets, weather for destinations, and visa information. "
+                "If the user asks a question that is NOT related to travel (e.g., about politics, science, history, general trivia), you MUST politely refuse to answer. "
+                "Your refusal message should be: 'I am a travel agent and can only assist with travel-related queries.' "
+                "Follow these rules for travel questions: "
+                "1. Think step-by-step. "
+                "2. Call only one tool at a time. "
+                "3. Respond in the same language as the user's last message."
             )
         )
         message_history.append(system_instruction)
@@ -183,9 +189,9 @@ if prompt_to_process:
         if full_response:
             st.session_state.messages.append({"role": "assistant", "content": full_response})
         else:
-            st.error("দুঃখিত, কোনো একটি সমস্যার কারণে আমি উত্তর তৈরি করতে পারিনি।")
+            st.error("Sorry, I encountered an issue and couldn't generate a response. Please try rephrasing your question.")
     st.rerun()
 
-# ফুটার (আপনার তথ্য সহ)
+# Footer
 st.markdown("---")
-st.markdown("<div style='text-align: center; color: grey;'>Programmed and Developed by <a href='https://www.linkedin.com/in/dmshahriarhossain/' target='_blank'>DM Shahriar Hossain</a></div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; color: grey;'>Programmed and Developed by <a href='https://www.linkedin.com/in/dm-shahriar-hossain/' target='_blank'>DM Shahriar Hossain</a></div>", unsafe_allow_html=True)
