@@ -1,133 +1,130 @@
+```markdown
 <div align="center">
-<br />
-<a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app/" target="_blank">
-<img src="https://i.imgur.com/g8RnjtU.png" alt="Project Banner">
-</a>
-<br />
+  <br />
+  <a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app/" target="_blank">
+    <img src="https://i.imgur.com/g8RnjtU.png" alt="Project Banner">
+  </a>
+  <br />
 
-<div>
-<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/LangChain-LangGraph-yellow?style=for-the-badge" />
+  <div>
+    <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+    <img src="https://img.shields.io/badge/LangChain-LangGraph-yellow?style=for-the-badge" />
+  </div>
+
+  <h3 align="center">🌐 TravelBot - AI-Powered Travel Agent</h3>
+
+  <div align="center">
+    An intelligent, conversational AI agent designed to be your personal travel assistant. Plan trips, find information, and get instant answers to all your travel queries with confidence.
+  </div>
 </div>
 
-<h3 align="center">🌐 TravelBot - AI-Powered Travel Agent</h3>
+---
+
+📋 <a name="table">**Table of Contents**</a>  
+- [✨ Introduction](#introduction)  
+- [⚙️ Tech Stack](#tech-stack)  
+- [🔋 Features](#features)  
+- [🤸 Quick Start](#quick-start)  
+- [☁️ Deployment](#deployment)  
+- [👨‍💻 Developer](#developer)
+
+---
+
+<a name="introduction">✨ **Introduction**</a>  
+TravelBot is not just a chatbot; it's a sophisticated AI agent built using the powerful **LangGraph** framework. It's designed to handle complex, multi-step travel queries and utilize a suite of tools to provide accurate, real-time travel information.
+
+From planning full itineraries to finding the cheapest flights or checking weather forecasts, TravelBot's got you covered — all inside a clean, interactive Streamlit interface.
 
 <div align="center">
-  An intelligent, conversational AI agent designed to be your personal travel assistant. Plan trips, find information, and get instant answers to all your travel queries with confidence.
+  <a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app/" target="_blank">
+    <img src="https://i.imgur.com/g8RnjtU.png" alt="TravelBot Demo Screenshot">
+  </a>
 </div>
 
-</div>
+---
 
-📋 <a name="table">Table of Contents</a>
-✨ Introduction
+<a name="tech-stack">⚙️ **Tech Stack**</a>
 
-⚙️ Tech Stack
+- **LangChain & LangGraph** – Core agent workflow and state management  
+- **Groq API (Llama 3)** – Fast, intelligent language model responses  
+- **Tavily Search API** – For real-time, accurate search results  
+- **Streamlit** – Sleek, interactive web application  
+- **Python** – Main programming language  
+- **GitHub + Streamlit Cloud** – Version control & deployment
 
-🔋 Features
+---
 
-🤸 Quick Start
+<a name="features">🔋 **Features**</a>
 
-☁️ Deployment
+- 👉 **Smart Travel Assistant** – Understands travel-focused chat context & follow-ups  
+- 👉 **Multi-Tool Integration** – Search, Weather, and Calculator all built-in  
+- 👉 **Multilingual** – Talks to you in English, বাংলা (Bengali), and more  
+- 👉 **Domain-Focused** – Politely avoids non-travel topics  
+- 👉 **Modern UI/UX** – Clean interface with chat history & restart options  
+- 👉 **Real-time Streaming** – Word-by-word bot replies, just like ChatGPT
 
-👨‍💻 Developer
+---
 
-<a name="introduction">✨ Introduction</a>
-TravelBot is not just a chatbot; it's a sophisticated AI agent built using the powerful LangGraph framework. It's designed to understand complex, multi-step travel queries and use a suite of tools to provide accurate, real-time information. Whether you need a full itinerary for a family vacation, the cheapest flight options, or weather forecasts for your destination, TravelBot is here to help.
+<a name="quick-start">🤸 **Quick Start**</a>
 
-The entire application is wrapped in a beautiful and interactive user interface created with Streamlit, making trip planning a seamless and enjoyable experience.
+### 🔧 Prerequisites
+Make sure you have:
+- Git  
+- Python 3.8+  
+- pip
 
-<div align="center">
-<a href="https://YOUR-STREAMLIT-APP-URL.streamlit.app/" target="_blank">
-<img src="https://i.imgur.com/g8RnjtU.png" alt="TravelBot Demo Screenshot">
-</a>
-</div>
-
-<a name="tech-stack">⚙️ Tech Stack</a>
-LangChain & LangGraph: For building the core agentic workflow and state management.
-
-Groq API (Llama 3): Powers the core language model for fast and intelligent responses.
-
-Tavily Search API: For a powerful and accurate search tool.
-
-Streamlit: For creating and deploying the interactive web application.
-
-Python: The core programming language for the backend logic.
-
-GitHub: For version control and CI/CD with Streamlit Cloud.
-
-<a name="features">🔋 Features</a>
-👉 Intelligent Conversational Agent: Understands context and follows up on conversations, providing a natural chat experience.
-
-👉 Multi-Tool Capability: Utilizes multiple tools to gather information: Web Search, Weather Forecast, and a Calculator.
-
-👉 Multilingual Support: Capable of understanding and responding in multiple languages, including English and Bengali.
-
-👉 Domain-Specific: Politely refuses to answer queries that are not related to travel, keeping the conversation focused.
-
-👉 Modern UI/UX: A clean, responsive, and user-friendly interface with features like persistent chat history and new chat functionality.
-
-👉 Real-time Streaming: Responses are streamed word-by-word, similar to modern chatbots like ChatGPT, for an engaging user experience.
-
-<a name="quick-start">🤸 Quick Start</a>
-Follow these steps to set up the project locally on your machine.
-
-Prerequisites
-
-Make sure you have the following installed on your machine:
-
-Git
-
-Python 3.8+
-
-pip (Python Package Installer)
-
-Cloning the Repository
-
+### 📥 Clone the Repo
 ```bash
 git clone https://github.com/rownokstar/Eg-Travel-Agent.git
 cd Eg-Travel-Agent
 ```
-Installation
 
-It's recommended to use a virtual environment.
-
+### 🧪 Set Up Environment
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+# For Windows:
+venv\Scripts\activate
+# For Mac/Linux:
+source venv/bin/activate
 pip install -r requirements.txt
 ```
-Set Up API Keys
 
-Create a file named secrets.toml inside a .streamlit folder (.streamlit/secrets.toml). Add your API keys in the following format:
-
-```bash
+### 🔑 Add API Keys
+Create `.streamlit/secrets.toml`:
+```toml
 [api_keys]
 GROQ_API_KEY = "YOUR_GROQ_API_KEY"
 TAVILY_API_KEY = "YOUR_TAVILY_API_KEY"
 ```
 
-Running the Project
-
+### 🚀 Run the App
+```bash
 streamlit run app.py
+```
+Open [http://localhost:8501](http://localhost:8501) in your browser.
 
-Open http://localhost:8501 in your browser to view the project.
+---
 
-<a name="deployment">☁️ Deployment on Streamlit Cloud</a>
-This app is deployed on Streamlit Community Cloud. The process is straightforward:
+<a name="deployment">☁️ **Deployment on Streamlit Cloud**</a>
 
-Push the entire project folder (containing app.py and requirements.txt) to a public GitHub repository.
+1. Push the entire project to a **public GitHub repo**  
+2. Sign in at [share.streamlit.io](https://share.streamlit.io)  
+3. Click **New app**, select your repo  
+4. In **"Secrets"**, paste the same config as `secrets.toml`  
+5. Click **Deploy!**
 
-Sign in to share.streamlit.io with your GitHub account.
+---
 
-Click "New app" and choose the repository you just created.
+<a name="developer">👨‍💻 **Developer**</a>
 
-In the "Secrets" section, add your API keys in the same format as the secrets.toml file.
+> **DM Shahriar Hossain**  
+> Passionate about building intelligent apps with clean UI, blazing-fast APIs, and meaningful user experiences.
 
-Click "Deploy!".
+---
 
-<a name="developer">👨‍💻 Developed By</a>
-DM Shahriar Hossain
+📄 **License**  
+This project is licensed under the [MIT License](LICENSE).
 
-📄 License
-This project is licensed under the MIT License.
+---
+```
